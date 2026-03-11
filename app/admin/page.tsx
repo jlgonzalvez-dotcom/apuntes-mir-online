@@ -99,24 +99,24 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
   }, [])
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-violet-50 via-white to-indigo-50 text-slate-900">
 
       {/* Header */}
-      <header className="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-10">
+      <header className="border-b border-violet-100 bg-white/70 backdrop-blur-md sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-7 h-7 rounded-lg bg-violet-500/20 border border-violet-500/30 flex items-center justify-center">
-              <svg className="w-4 h-4 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <div className="w-7 h-7 rounded-lg bg-violet-100 border border-violet-200 flex items-center justify-center">
+              <svg className="w-4 h-4 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
               </svg>
             </div>
-            <span className="font-[650] text-sm tracking-tight">Panel de administración</span>
-            <span className="text-slate-600 text-sm">·</span>
+            <span className="font-[650] text-sm tracking-tight text-slate-800">Panel de administración</span>
+            <span className="text-slate-300 text-sm">·</span>
             <span className="text-slate-400 text-sm">Apuntes MIR Online</span>
           </div>
           <button
             onClick={onLogout}
-            className="text-xs text-slate-500 hover:text-slate-300 transition cursor-pointer"
+            className="text-xs text-slate-400 hover:text-slate-600 transition cursor-pointer"
           >
             Cerrar sesión
           </button>
@@ -125,43 +125,43 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
 
       <main className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
 
-        {/* Stat card */}
+        {/* Stat cards */}
         <div className="grid sm:grid-cols-3 gap-4 mb-8">
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
-            <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-2">Total registros</p>
-            <p className="text-4xl font-[650] text-white tracking-tighter">
+          <div className="rounded-2xl border border-violet-100 bg-white shadow-sm shadow-violet-100 p-6">
+            <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">Total registros</p>
+            <p className="text-4xl font-[650] text-slate-900 tracking-tighter">
               {loading ? '—' : entries.length}
             </p>
           </div>
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
-            <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-2">Último registro</p>
-            <p className="text-sm font-medium text-white mt-1">
+          <div className="rounded-2xl border border-violet-100 bg-white shadow-sm shadow-violet-100 p-6">
+            <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">Último registro</p>
+            <p className="text-sm font-medium text-slate-700 mt-1">
               {loading ? '—' : entries[0] ? formatDate(entries[0].created_at) : 'Sin datos'}
             </p>
           </div>
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
-            <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-2">Estado</p>
+          <div className="rounded-2xl border border-violet-100 bg-white shadow-sm shadow-violet-100 p-6">
+            <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">Estado</p>
             <div className="flex items-center gap-2 mt-1">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
-              <span className="text-sm font-medium text-emerald-400">Waitlist activa</span>
+              <span className="text-sm font-medium text-emerald-600">Waitlist activa</span>
             </div>
           </div>
         </div>
 
         {/* Tabla */}
-        <div className="rounded-2xl border border-slate-800 bg-slate-900 overflow-hidden">
-          <div className="px-6 py-4 border-b border-slate-800 flex items-center justify-between">
-            <h2 className="font-[650] text-sm text-white">Lista de espera</h2>
+        <div className="rounded-2xl border border-violet-100 bg-white shadow-sm shadow-violet-100 overflow-hidden">
+          <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+            <h2 className="font-[650] text-sm text-slate-800">Lista de espera</h2>
             {!loading && (
-              <span className="text-xs text-slate-500">{entries.length} {entries.length === 1 ? 'registro' : 'registros'}</span>
+              <span className="text-xs text-slate-400">{entries.length} {entries.length === 1 ? 'registro' : 'registros'}</span>
             )}
           </div>
 
           {loading && (
-            <div className="flex items-center justify-center py-16 text-slate-500 text-sm">
+            <div className="flex items-center justify-center py-16 text-slate-400 text-sm">
               Cargando…
             </div>
           )}
@@ -173,7 +173,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
           )}
 
           {!loading && !error && entries.length === 0 && (
-            <div className="flex items-center justify-center py-16 text-slate-500 text-sm">
+            <div className="flex items-center justify-center py-16 text-slate-400 text-sm">
               Aún no hay registros en la waitlist.
             </div>
           )}
@@ -182,20 +182,20 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-slate-800">
-                    <th className="text-left px-6 py-3 text-xs font-semibold uppercase tracking-widest text-slate-500">#</th>
-                    <th className="text-left px-6 py-3 text-xs font-semibold uppercase tracking-widest text-slate-500">Email</th>
-                    <th className="text-left px-6 py-3 text-xs font-semibold uppercase tracking-widest text-slate-500">Fecha de registro</th>
+                  <tr className="border-b border-slate-100 bg-slate-50/60">
+                    <th className="text-left px-6 py-3 text-xs font-semibold uppercase tracking-widest text-slate-400">#</th>
+                    <th className="text-left px-6 py-3 text-xs font-semibold uppercase tracking-widest text-slate-400">Email</th>
+                    <th className="text-left px-6 py-3 text-xs font-semibold uppercase tracking-widest text-slate-400">Fecha de registro</th>
                   </tr>
                 </thead>
                 <tbody>
                   {entries.map((entry, i) => (
                     <tr
                       key={entry.id}
-                      className="border-b border-slate-800/50 last:border-0 hover:bg-slate-800/40 transition-colors"
+                      className="border-b border-slate-100 last:border-0 hover:bg-violet-50/40 transition-colors"
                     >
-                      <td className="px-6 py-4 text-slate-600 tabular-nums">{entries.length - i}</td>
-                      <td className="px-6 py-4 text-white font-medium">{entry.email}</td>
+                      <td className="px-6 py-4 text-slate-400 tabular-nums">{entries.length - i}</td>
+                      <td className="px-6 py-4 text-slate-800 font-medium">{entry.email}</td>
                       <td className="px-6 py-4 text-slate-400">{formatDate(entry.created_at)}</td>
                     </tr>
                   ))}
